@@ -269,16 +269,16 @@ function showNotification(message, type = 'success') {
         position: 'fixed',
         top: '100px',
         right: '30px',
-        background: type === 'success' ? 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)' : 'linear-gradient(135deg, #f5576c 0%, #f093fb 100%)',
-        color: 'white',
-        padding: '20px 30px',
-        borderRadius: '12px',
+        background: type === 'success' ? '#2B2927' : '#A38A75', // Minimalist color finishes
+        color: '#FAF8F5',
+        padding: '16px 28px',
+        borderRadius: '4px',
         display: 'flex',
         alignItems: 'center',
-        gap: '15px',
-        fontSize: '16px',
-        fontWeight: '600',
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+        gap: '12px',
+        fontSize: '14px',
+        fontWeight: '500',
+        boxShadow: '0 8px 30px rgba(43, 41, 39, 0.08)',
         zIndex: '10000',
         animation: 'slideInRight 0.5s ease',
         maxWidth: '400px'
@@ -330,9 +330,9 @@ cursor.className = 'custom-cursor';
 cursorFollower.className = 'cursor-follower';
 
 Object.assign(cursor.style, {
-    width: '10px',
-    height: '10px',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    width: '6px',
+    height: '6px',
+    background: '#A38A75', // Warm sand tone
     borderRadius: '50%',
     position: 'fixed',
     pointerEvents: 'none',
@@ -341,14 +341,14 @@ Object.assign(cursor.style, {
 });
 
 Object.assign(cursorFollower.style, {
-    width: '40px',
-    height: '40px',
-    border: '2px solid rgba(102, 126, 234, 0.5)',
+    width: '34px',
+    height: '34px',
+    border: '1px solid rgba(163, 138, 117, 0.4)', // Matching border
     borderRadius: '50%',
     position: 'fixed',
     pointerEvents: 'none',
     zIndex: '99998',
-    transition: 'all 0.3s ease'
+    transition: 'all 0.4s cubic-bezier(0.25, 1, 0.5, 1)'
 });
 
 // Only add custom cursor on desktop
@@ -522,3 +522,6 @@ if ('performance' in window) {
         console.log(`%cPage Load Time: ${pageLoadTime}ms`, 'color: #43e97b; font-weight: bold;');
     });
 }
+
+
+
