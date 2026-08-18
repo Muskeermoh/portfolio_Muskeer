@@ -1523,6 +1523,7 @@ body::before {
 .stat-item,
 .skill-category,
 .timeline-content,
+.tech-item,
 .featured-project-card,
 .project-card-small,
 .contact-form-wrapper,
@@ -1673,6 +1674,57 @@ body::before {
     background: rgba(255, 212, 71, 0.075);
     border-color: rgba(255, 212, 71, 0.18);
     color: #d9c986;
+}
+
+.timeline-date,
+.featured-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    background: var(--gradient-1);
+    color: #03060d;
+    border: 1px solid rgba(255, 242, 168, 0.45);
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-shadow: none;
+    box-shadow: 0 10px 28px rgba(255, 212, 71, 0.22);
+}
+
+.timeline-tags,
+.project-tags,
+.project-tags-small {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.timeline-tags span,
+.project-tags span,
+.project-tags-small span {
+    border: 1px solid rgba(255, 212, 71, 0.22);
+    border-radius: 999px;
+    padding: 6px 12px;
+    color: #f1e2a2;
+    line-height: 1;
+}
+
+.category-header h3,
+.tech-item span {
+    color: var(--text-primary);
+}
+
+.tech-item span {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .featured-project-card {
