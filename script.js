@@ -62,11 +62,11 @@ window.addEventListener('scroll', debounce(() => {
 // ==================== TYPING EFFECT ====================
 const typingText = document.querySelector('.typing-text');
 const roles = [
-    'Full Stack Developer',
-    'Frontend Specialist',
-    'Backend Engineer',
-    'UI/UX Enthusiast',
-    'Problem Solver'
+    'Gotham Full Stack Developer',
+    'Frontend Systems Specialist',
+    'Backend Automation Engineer',
+    'Spatial UI Builder',
+    'Problem Solver After Dark'
 ];
 
 let roleIndex = 0;
@@ -353,6 +353,7 @@ Object.assign(cursorFollower.style, {
 
 // Only add custom cursor on desktop
 if (window.innerWidth > 968) {
+    document.body.classList.add('bat-cursor-enabled');
     document.body.appendChild(cursor);
     document.body.appendChild(cursorFollower);
 
@@ -360,6 +361,7 @@ if (window.innerWidth > 968) {
     let mouseY = 0;
     let followerX = 0;
     let followerY = 0;
+    let isAnimating = true;
 
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
@@ -370,6 +372,8 @@ if (window.innerWidth > 968) {
 
     // Smooth follower animation
     function animateFollower() {
+        if (!isAnimating) return;
+        
         const distX = mouseX - followerX;
         const distY = mouseY - followerY;
 
@@ -382,10 +386,11 @@ if (window.innerWidth > 968) {
         requestAnimationFrame(animateFollower);
     }
 
-    animateFollower();
+    // Start animation after a short delay
+    setTimeout(() => animateFollower(), 100);
 
     // Cursor hover effects
-    const hoverElements = document.querySelectorAll('a, button, .project-card, .tech-item, .skill-item');
+    const hoverElements = document.querySelectorAll('a, button, .project-card, .featured-project-card, .project-card-small, .tech-item, .skill-item, .skill-category, .timeline-content, .contact-item');
     
     hoverElements.forEach(element => {
         element.addEventListener('mouseenter', () => {
@@ -424,6 +429,13 @@ window.addEventListener('load', () => {
 
     // Trigger initial animations
     document.body.classList.add('loaded');
+    
+    // Force page to finish loading state
+    setTimeout(() => {
+        if (document.readyState === 'complete') {
+            window.stop();
+        }
+    }, 100);
 });
 
 // ==================== PROJECT CARD TILT EFFECT ====================
@@ -446,6 +458,37 @@ projectCards.forEach(card => {
 
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+    });
+});
+
+// ==================== SPATIAL CARD DEPTH ====================
+const spatialCards = document.querySelectorAll(
+    '.featured-project-card, .project-card-small, .skill-category, .timeline-content, .stat-item, .tech-item, .contact-item, .hero-text'
+);
+
+spatialCards.forEach(card => {
+    card.classList.add('spatial-card');
+
+    card.addEventListener('pointermove', (e) => {
+        if (window.innerWidth <= 968) return;
+
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((centerY - y) / centerY) * 5;
+        const rotateY = ((x - centerX) / centerX) * 7;
+
+        card.style.setProperty('--spot-x', `${(x / rect.width) * 100}%`);
+        card.style.setProperty('--spot-y', `${(y / rect.height) * 100}%`);
+        card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(18px)`;
+    });
+
+    card.addEventListener('pointerleave', () => {
+        card.style.removeProperty('--spot-x');
+        card.style.removeProperty('--spot-y');
+        card.style.transform = '';
     });
 });
 
