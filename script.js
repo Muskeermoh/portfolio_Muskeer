@@ -62,11 +62,11 @@ window.addEventListener('scroll', debounce(() => {
 // ==================== TYPING EFFECT ====================
 const typingText = document.querySelector('.typing-text');
 const roles = [
-    'Gotham Full Stack Developer',
+    'Spider-Web Full Stack Developer',
     'Frontend Systems Specialist',
     'Backend Automation Engineer',
-    'Spatial UI Builder',
-    'Problem Solver After Dark'
+    '3D Spatial UI Builder',
+    'Automation Problem Solver'
 ];
 
 let roleIndex = 0;
@@ -332,7 +332,7 @@ cursorFollower.className = 'cursor-follower';
 Object.assign(cursor.style, {
     width: '6px',
     height: '6px',
-    background: '#A38A75', // Warm sand tone
+    background: '#ff3045',
     borderRadius: '50%',
     position: 'fixed',
     pointerEvents: 'none',
@@ -343,7 +343,7 @@ Object.assign(cursor.style, {
 Object.assign(cursorFollower.style, {
     width: '34px',
     height: '34px',
-    border: '1px solid rgba(163, 138, 117, 0.4)', // Matching border
+    border: '1px solid rgba(248, 251, 255, 0.52)',
     borderRadius: '50%',
     position: 'fixed',
     pointerEvents: 'none',
@@ -353,7 +353,7 @@ Object.assign(cursorFollower.style, {
 
 // Only add custom cursor on desktop
 if (window.innerWidth > 968) {
-    document.body.classList.add('bat-cursor-enabled');
+    document.body.classList.add('spider-cursor-enabled');
     document.body.appendChild(cursor);
     document.body.appendChild(cursorFollower);
 
@@ -408,7 +408,7 @@ if (window.innerWidth > 968) {
 // ==================== PARALLAX EFFECT ====================
 window.addEventListener('scroll', debounce(() => {
     const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.floating-shapes');
+    const parallaxElements = document.querySelectorAll('.floating-shapes, .spider-ambient');
     
     parallaxElements.forEach(element => {
         const speed = 0.5;
@@ -511,9 +511,9 @@ images.forEach(img => {
 });
 
 // ==================== CONSOLE MESSAGE ====================
-console.log('%c👋 Hello Developer!', 'color: #667eea; font-size: 20px; font-weight: bold;');
-console.log('%cInterested in the code? Check out my GitHub!', 'color: #f093fb; font-size: 14px;');
-console.log('%chttps://github.com/muskeermhm', 'color: #43e97b; font-size: 14px;');
+console.log('%cHello Developer!', 'color: #ff3045; font-size: 20px; font-weight: bold;');
+console.log('%cInterested in the code? Check out my GitHub!', 'color: #0f5bff; font-size: 14px;');
+console.log('%chttps://github.com/muskeermhm', 'color: #f8fbff; font-size: 14px;');
 
 // ==================== EASTER EGG ====================
 let konamiCode = [];
