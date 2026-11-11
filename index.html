@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
+        } catch {
+            document.documentElement.dataset.theme = 'dark';
+        }
+    </script>
     <title>M.H.M Muskeer - Associate Software Engineer</title>
-    <link rel="stylesheet" href="styles.css?v=spider-20260819">
+    <link rel="stylesheet" href="styles.css?v=elite-20261105">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23e11d2e'/%3E%3Cpath d='M50 8v84M8 50h84M20 20l60 60M80 20 20 80' stroke='%23f8fafc' stroke-width='6' stroke-linecap='round' opacity='.9'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%23051020'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230c0b0c'/%3E%3Cpath d='M18 77V23h10l22 30 22-30h10v54H70V40L50 67 30 40v37z' fill='%23f0ece8'/%3E%3Cpath d='M18 88h64' stroke='%23c83d50' stroke-width='4'/%3E%3C/svg%3E">
 </head>
 <body>
-    <div class="spider-ambient" aria-hidden="true">
-        <div class="web-field web-field-one"></div>
-        <div class="web-field web-field-two"></div>
-        <div class="web-orb">
-            <span></span>
-        </div>
-        <div class="web-thread thread-one"></div>
-        <div class="web-thread thread-two"></div>
-        <div class="city-depth skyline-back"></div>
-        <div class="city-depth skyline-front"></div>
-        <div class="particle-layer"></div>
-    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -37,6 +34,10 @@
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" aria-pressed="false" title="Switch to light theme">
+                <i class="fas fa-sun theme-icon-sun" aria-hidden="true"></i>
+                <i class="fas fa-moon theme-icon-moon" aria-hidden="true"></i>
+            </button>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -57,9 +58,10 @@
         </div>
         <div class="hero-content">
             <div class="hero-text">
-                <p class="hero-subtitle" data-aos="fade-up">Web protocol online // Spatial portfolio</p>
+                <p class="hero-subtitle" data-aos="fade-up">Software engineering / web &amp; automation</p>
                 <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                    M.H.M <span class="highlight">Muskeer</span>
+                    <span class="hero-name-line">M.H.M</span>
+                    <span class="hero-name-line highlight">Muskeer</span>
                 </h1>
                 <div class="typing-container" data-aos="fade-up" data-aos-delay="200">
                     <h2 class="hero-role">
@@ -101,10 +103,20 @@
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left" data-aos-delay="300">
+                <div class="hero-image-aura" aria-hidden="true"></div>
                 <div class="image-wrapper">
                     <img src="images/profile.jpeg" alt="Muskeer MHM">
                     <div class="image-glow"></div>
                 </div>
+                <div class="hero-hud hero-hud-top" aria-hidden="true">
+                    <span class="hud-signal"></span>
+                    <span>ENGINEER / M.H.M</span>
+                </div>
+                <div class="hero-hud hero-hud-bottom" aria-hidden="true">
+                    <span>CORE SKILLS</span>
+                    <strong>PYTHON <i>//</i> PHP</strong>
+                </div>
+                <span class="hero-image-index" aria-hidden="true">PROFILE / 01</span>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -708,6 +720,6 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="script.js?v=spider-20260819"></script>
+    <script src="script.js?v=elite-20261105"></script>
 </body>
 </html>
